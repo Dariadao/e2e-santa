@@ -4,12 +4,25 @@
   "description": "",
   "main": "cypress.config.js",
   "scripts": {
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
-  "author": "",
+  "author": "Daria Zakharova",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^12.2.0",
-    "@faker-js/faker": "^7.6.0"
-  }
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^12.17.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dariadao/e2e-santa.git"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "bugs": {
+    "url": "https://github.com/Dariadao/e2e-santa/issues"
+  },
+  "homepage": "https://github.com/Dariadao/e2e-santa#readme"
 }
