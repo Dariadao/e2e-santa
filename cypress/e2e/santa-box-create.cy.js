@@ -58,31 +58,40 @@ describe("user can create a box and run it", () => {
     cy.clearCookies();
   });
   it("approve as user1", () => {
-    cy.visit(inviteLink);
-    cy.get(generalElements.submitButton).click();
-    cy.contains("войдите").click();
-    cy.login(users.user1.email, users.user1.password);
-    cy.contains("Создать карточку участника").should("exist");
-    cy.get(generalElements.submitButton).click();
-    cy.get(generalElements.arrowRight).click();
-    cy.get(generalElements.arrowRight).click();
-    cy.get(inviteeBoxPage.wishesInput).type(wishes);
-    cy.get(generalElements.arrowRight).click();
-    cy.get(inviteeDashboardPage.noticeForInvitee)
-      .invoke("text")
-      .then((text) => {
-        expect(text).to.contain("Это — анонимный чат с вашим Тайным Сантой");
-      });
+    cy.aproveInvitation(
+      users.user1.email,
+      users.user1.password,
+      inviteLink,
+      wishes
+    );
+    cy.clearCookies();
+  });
+  it("approve as user2", () => {
+    cy.aproveInvitation(
+      users.user2.email,
+      users.user2.password,
+      inviteLink,
+      wishes
+    );
+    cy.clearCookies();
+  });
+  it("approve as user3", () => {
+    cy.aproveInvitation(
+      users.user3.email,
+      users.user3.password,
+      inviteLink,
+      wishes
+    );
     cy.clearCookies();
   });
 
-  after("delete box", () => {
+  it("delete box", () => {
     cy.visit("/login");
     cy.login(users.userAutor.email, users.userAutor.password);
     cy.get(
       '.layout-1__header-wrapper-fixed > .layout-1__header > .header > .header__items > .layout-row-start > [href="/account/boxes"] > .header-item > .header-item__text > .txt--med'
     ).click();
-    cy.contains(newBoxName).click();
+    cy.contains(newBoxName).click({ force: true });
     cy.get(
       ".layout-1__header-wrapper-fixed > .layout-1__header-secondary > .header-secondary > .header-secondary__right-item > .toggle-menu-wrapper > .toggle-menu-button > .toggle-menu-button--inner"
     ).click();
@@ -90,6 +99,6 @@ describe("user can create a box and run it", () => {
     cy.get(":nth-child(2) > .form-page-group__main > .frm-wrapper > .frm").type(
       "Удалить коробку"
     );
-    cy.get(".btn-service").click({ multiple: true });
+    cy.get(generalElements.deleteBtn).click({ multiple: true });
   });
 });
