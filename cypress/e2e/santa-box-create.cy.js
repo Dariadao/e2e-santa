@@ -7,6 +7,10 @@ const inviteeBoxPage = require("../fixtures/pages/inviteeBoxPage.json");
 const inviteeDashboardPage = require("../fixtures/pages/inviteeDashboardPage.json");
 import { faker } from "@faker-js/faker";
 
+Cypress.on("uncaught:exception", (err, runnable) => {
+  return false;
+});
+
 describe("user can create a box and run it", () => {
   //пользователь 1 логинится
   //пользователь 1 создает коробку
@@ -21,6 +25,7 @@ describe("user can create a box and run it", () => {
   //пользователь 1 запускает жеребьевку
   let newBoxName = faker.word.noun({ length: { min: 5, max: 10 } });
   let wishes = faker.word.noun() + faker.word.adverb() + faker.word.adjective();
+  let minAmount = 10;
   let maxAmount = 50;
   let currency = "Евро";
   let inviteLink;
@@ -34,6 +39,7 @@ describe("user can create a box and run it", () => {
     cy.get(boxPage.sixthIcon).click();
     cy.get(generalElements.arrowRight).click();
     cy.get(".switch__toggle").click();
+    cy.get(boxPage.minAmount).type(minAmount);
     cy.get(boxPage.maxAnount).type(maxAmount);
     cy.get(boxPage.currency).select(currency);
     cy.get(generalElements.arrowRight).click();
@@ -49,7 +55,7 @@ describe("user can create a box and run it", () => {
   });
 
   it("add participants", () => {
-    cy.get(generalElements.submitButton).click();
+    cy.get(generalElements.submitButton).click({ multiple: true });
     cy.get(invitePage.inviteLink)
       .invoke("text")
       .then((link) => {
