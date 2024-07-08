@@ -4,5 +4,6 @@
   "giftPriceToggle": "input",
   "minAmount": ":nth-child(1) > .frm-wrapper > .frm",
   "maxAnount": ":nth-child(2) > .frm-wrapper > .frm",
-  "currency": ".MuiGrid-grid-xs-6 > .frm-wrapper > .frm"
+  "currency": ".MuiGrid-grid-xs-6 > .frm-wrapper > .frm",
+  "boxIdField": ":nth-child(3) > .frm"
 }

@@ -1,3 +1,9 @@
 {
-  "inviteLink": ":nth-child(2) > .form-page-group__main b"
+  "inviteLink": ":nth-child(2) > .form-page-group__main b",
+  "nameFirstRaw": ":nth-child(1) > .frm-wrapper > #input-table-0",
+  "emailFirstRaw": ":nth-child(2) > .frm-wrapper > #input-table-0",
+  "nameSecondRaw": ":nth-child(3) > .frm-wrapper > #input-table-1",
+  "emailSecondRaw": ":nth-child(4) > .frm-wrapper > #input-table-1",
+  "nameThirdRaw": ":nth-child(5) > .frm-wrapper > #input-table-2",
+  "emailThirdRaw": ":nth-child(6) > .frm-wrapper > #input-table-2"
 }

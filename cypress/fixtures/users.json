@@ -18,5 +18,21 @@
     "email": "daria361987+usertest3@gmail.com",
     "password": "qwerty123",
     "name": "usertest3"
+  },
+
+  "user4": {
+    "email": "daria361987+usertest4@gmail.com",
+    "password": "qwerty123",
+    "name": "usertest4"
+  },
+  "user5": {
+    "email": "daria361987+usertest5@gmail.com",
+    "password": "qwerty123",
+    "name": "usertest5"
+  },
+  "user6": {
+    "email": "daria361987+usertest6@gmail.com",
+    "password": "qwerty123",
+    "name": "usertest6"
   }
 }

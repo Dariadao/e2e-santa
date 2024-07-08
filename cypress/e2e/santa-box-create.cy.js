@@ -3,6 +3,7 @@ const boxPage = require("../fixtures/pages/boxPage.json");
 const generalElements = require("../fixtures/pages/general.json");
 const dashboardPage = require("../fixtures/pages/dashboardPage.json");
 const invitePage = require("../fixtures/pages/invitePage.json");
+const drawPage = require("../fixtures/pages/drawPage.json");
 const inviteeBoxPage = require("../fixtures/pages/inviteeBoxPage.json");
 const inviteeDashboardPage = require("../fixtures/pages/inviteeDashboardPage.json");
 import { faker } from "@faker-js/faker";
@@ -29,12 +30,14 @@ describe("user can create a box and run it", () => {
   let maxAmount = 50;
   let currency = "Евро";
   let inviteLink;
+  let boxID = faker.word.noun() + faker.random.numeric(3);
 
   it("user logins and create a box", () => {
     cy.visit("/login");
     cy.login(users.userAutor.email, users.userAutor.password);
     cy.contains("Создать коробку").click();
     cy.get(boxPage.boxNameField).type(newBoxName);
+    cy.get(boxPage.boxIdField).clear().type(boxID);
     cy.get(generalElements.arrowRight).click();
     cy.get(boxPage.sixthIcon).click();
     cy.get(generalElements.arrowRight).click();
@@ -54,8 +57,34 @@ describe("user can create a box and run it", () => {
       });
   });
 
-  it("add participants", () => {
-    cy.get(generalElements.submitButton).click({ multiple: true });
+  it("add participants manually", () => {
+    cy.get(generalElements.submitButton).click();
+    cy.addParticipant(
+      invitePage.nameFirstRaw,
+      invitePage.emailFirstRaw,
+      users.user4.name,
+      users.user4.email
+    );
+    cy.addParticipant(
+      invitePage.nameSecondRaw,
+      invitePage.emailSecondRaw,
+      users.user5.name,
+      users.user5.email
+    );
+    cy.addParticipant(
+      invitePage.nameThirdRaw,
+      invitePage.emailThirdRaw,
+      users.user6.name,
+      users.user6.email
+    );
+    cy.get(".form-page__buttons > .btn-main").click();
+    cy.contains(
+      "Карточки участников успешно созданы и приглашения уже отправляются."
+    ).should("exist");
+  });
+
+  it("add participants by sending a link", () => {
+    cy.visit(`/box/${boxID}/invite`);
     cy.get(invitePage.inviteLink)
       .invoke("text")
       .then((link) => {
@@ -63,6 +92,7 @@ describe("user can create a box and run it", () => {
       });
     cy.clearCookies();
   });
+
   it("approve as user1", () => {
     cy.aproveInvitation(
       users.user1.email,
@@ -91,9 +121,21 @@ describe("user can create a box and run it", () => {
     cy.clearCookies();
   });
 
-  it("delete box", () => {
+  it("draw for participiants", () => {
     cy.visit("/login");
     cy.login(users.userAutor.email, users.userAutor.password);
+    cy.get(generalElements.submitButton).click();
+    cy.visit(`/box/${boxID}`);
+    cy.get(drawPage.drawStartButton).click({ multiple: true, force: true });
+    cy.get(generalElements.submitButton).click();
+    cy.get(drawPage.drawConfirmButton).click();
+    cy.get(drawPage.drawResultButton).click();
+    cy.contains(
+      "На этой странице показан актуальный список участников со всей информацией."
+    ).should("exist");
+  });
+
+  it("delete box", () => {
     cy.get(
       '.layout-1__header-wrapper-fixed > .layout-1__header > .header > .header__items > .layout-row-start > [href="/account/boxes"] > .header-item > .header-item__text > .txt--med'
     ).click();

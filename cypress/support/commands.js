@@ -55,3 +55,11 @@ Cypress.Commands.add(
       });
   }
 );
+
+Cypress.Commands.add(
+  "addParticipant",
+  (userNameField, userEmailField, name, email) => {
+    cy.get(userNameField).type(name);
+    cy.get(userEmailField).type(email);
+  }
+);

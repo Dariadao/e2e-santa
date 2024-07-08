@@ -1,0 +1,5 @@
+{
+  "drawStartButton": ".txt-secondary--med",
+  "drawConfirmButton": ".santa-modal_content_buttons > .btn-main",
+  "drawResultButton": ".picture-notice__hint > a > .base--clickable"
+}
