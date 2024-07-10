@@ -12,6 +12,8 @@ Cypress.on("uncaught:exception", (err, runnable) => {
   return false;
 });
 
+Cypress.config("pageLoadTimeout", 100000);
+
 describe("user can create a box and run it", () => {
   //пользователь 1 логинится
   //пользователь 1 создает коробку
@@ -48,7 +50,7 @@ describe("user can create a box and run it", () => {
     cy.get(generalElements.arrowRight).click();
     cy.get(generalElements.arrowRight).click();
     cy.get(dashboardPage.createdBoxName).should("have.text", newBoxName);
-    cy.get(".layout-1__header-wrapper-fixed .toggle-menu-item span")
+    cy.get(boxPage.menuField)
       .invoke("text")
       .then((text) => {
         expect(text).to.include("Участники");
@@ -77,7 +79,7 @@ describe("user can create a box and run it", () => {
       users.user6.name,
       users.user6.email
     );
-    cy.get(".form-page__buttons > .btn-main").click();
+    cy.get(invitePage.inviteBtn).click();
     cy.contains(
       "Карточки участников успешно созданы и приглашения уже отправляются."
     ).should("exist");
@@ -140,8 +142,7 @@ describe("user can create a box and run it", () => {
       method: "DELETE",
       url: `api/box/${boxID}`,
       headers: {
-        Cookie:
-          "_ym_uid=1719762512667007233; _ym_d=1719762512; adrcid=AnXfFF_HHtjK4RuhWpJJ1Ig; fid=d7f594d5-24c2-4ea8-b832-076d203550a7; _ac_cid=0200007F577E81668414126F027423A5; uuid=d5ffc39162cf7702%3A1; __upin=aPRDGTpEgvkX2iK40lNFww; _buzz_fpc=JTdCJTIydmFsdWUlMjIlM0ElN0IlMjJ1ZnAlMjIlM0ElMjIwMTA5OTFhZTY3OTljMzY2YmU5MjZlNmQ3YjhkYjM4MCUyMiUyQyUyMmJyb3dzZXJWZXJzaW9uJTIyJTNBJTIyMTI2LjAlMjIlMkMlMjJ0c0NyZWF0ZWQlMjIlM0ExNzIwMDQzNzA1NDY1JTdEJTJDJTIycGF0aCUyMiUzQSUyMiUyRiUyMiUyQyUyMmRvbWFpbiUyMiUzQSUyMi5zYW50YS1zZWNyZXQucnUlMjIlMkMlMjJleHBpcmVzJTIyJTNBJTIyVGh1JTJDJTIwMDMlMjBKdWwlMjAyMDI1JTIwMjElM0E1NSUzQTA2JTIwR01UJTIyJTJDJTIyU2FtZVNpdGUlMjIlM0ElMjJMYXglMjIlN0Q=; _buzz_aidata=JTdCJTIydmFsdWUlMjIlM0ElN0IlMjJ1ZnAlMjIlM0ElMjJhUFJER1RwRWd2a1gyaUs0MGxORnd3JTIyJTJDJTIyYnJvd3NlclZlcnNpb24lMjIlM0ElMjIxMjYuMCUyMiUyQyUyMnRzQ3JlYXRlZCUyMiUzQTE3MjAwNDM3MDU3NDglN0QlMkMlMjJwYXRoJTIyJTNBJTIyJTJGJTIyJTJDJTIyZG9tYWluJTIyJTNBJTIyLnNhbnRhLXNlY3JldC5ydSUyMiUyQyUyMmV4cGlyZXMlMjIlM0ElMjJUaHUlMkMlMjAwMyUyMEp1bCUyMDIwMjUlMjAyMSUzQTU1JTNBMDYlMjBHTVQlMjIlMkMlMjJTYW1lU2l0ZSUyMiUzQSUyMkxheCUyMiU3RA==; adtech_uid=442e6d9c-10d4-45b7-b9a3-4db936a6c4ec%3Asanta-secret.ru; top100_id=t1.7627570.1931595189.1720373182864; jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjY1NjA2NDgsImlhdCI6MTcyMDM5ODg2NiwiZXhwIjoxNzIyOTkwODY2fQ.o2e2WfwdYaGZo8p7tLx-DULWl7TQt8u31S1HJXTCT6s; t3_sid_7627570=s1.1532641584.1720398109592.1720401062042.3.174; domain_sid=kt2fmVdbcIK6MuyvOHf4K%3A1720401062176; _ym_isad=2; _ac_oid=e2404b512bfc3bee180187d6bb814852%3A1720472912606; acs_3=%7B%22hash%22%3A%22ae20ebda0c76a160feca%22%2C%22nextSyncTime%22%3A1720566457606%2C%22syncLog%22%3A%7B%22224%22%3A1720480057606%2C%221228%22%3A1720480057606%2C%221230%22%3A1720480057606%7D%7D; adrdel=1720480057783",
+        Cookie: generalElements.cookie,
       },
     }).then((response) => {
       expect(response.status).to.eq(200);

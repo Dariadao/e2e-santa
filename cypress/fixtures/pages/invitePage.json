@@ -1,5 +1,6 @@
 {
   "inviteLink": ":nth-child(2) > .form-page-group__main b",
+  "inviteBtn": ".form-page__buttons > .btn-main",
   "nameFirstRaw": ":nth-child(1) > .frm-wrapper > #input-table-0",
   "emailFirstRaw": ":nth-child(2) > .frm-wrapper > #input-table-0",
   "nameSecondRaw": ":nth-child(3) > .frm-wrapper > #input-table-1",
