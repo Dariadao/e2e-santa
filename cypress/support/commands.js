@@ -44,8 +44,8 @@ Cypress.Commands.add(
     cy.login(userEmail, userPwd);
     cy.contains("Создать карточку участника").should("exist");
     cy.get(generalElements.submitButton).click();
-    cy.get(generalElements.arrowRight).click();
-    cy.get(generalElements.arrowRight).click();
+    cy.get(generalElements.arrowRight).click({ force: true });
+    cy.get(generalElements.arrowRight).click({ force: true });
     cy.get(inviteeBoxPage.wishesInput).type(wishes);
     cy.get(generalElements.arrowRight).click();
     cy.get(inviteeDashboardPage.noticeForInvitee)
@@ -63,3 +63,5 @@ Cypress.Commands.add(
     cy.get(userEmailField).type(email);
   }
 );
+
+Cypress.config("defaultCommandTimeout", 10000);

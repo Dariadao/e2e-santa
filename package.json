@@ -10,10 +10,12 @@
   "author": "Daria Zakharova",
   "license": "ISC",
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
     "@faker-js/faker": "^7.6.0",
-    "cypress": "^12.17.4"
+    "cypress": "^13.13.0",
+    "esbuild": "^0.23.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dariadao/e2e-santa.git"
@@ -24,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Dariadao/e2e-santa/issues"
   },
-  "homepage": "https://github.com/Dariadao/e2e-santa#readme"
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions/santa-box-create.cy.js"
+  }
 }
