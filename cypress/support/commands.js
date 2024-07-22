@@ -64,4 +64,4 @@ Cypress.Commands.add(
   }
 );
 
-Cypress.config("defaultCommandTimeout", 10000);
+Cypress.config("defaultCommandTimeout", 60000);

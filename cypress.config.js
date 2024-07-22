@@ -26,6 +26,7 @@
 //   },
 // });
 const { defineConfig } = require("cypress");
+const { allureCypress } = require("allure-cypress/reporter");
 
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const addCucumberPreprocessorPlugin =
@@ -36,13 +37,15 @@ const createEsBuildPlugin =
 module.exports = defineConfig({
   "cypress-cucumber-preprocessor": {
     nonGlobalStepDefinitions: false,
-    // stepDefinitions: "cypress/support/step_definitions/santa-box-create.cy.js",
   },
   e2e: {
     baseUrl: "https://santa-secret.ru",
     testIsolation: false,
     async setupNodeEvents(on, config) {
-      // implement node event listeners here
+      allureCypress(on, {
+        resultsDir: "./allure-results",
+      });
+
       const bundler = createBundler({
         plugins: [createEsBuildPlugin(config)],
       });

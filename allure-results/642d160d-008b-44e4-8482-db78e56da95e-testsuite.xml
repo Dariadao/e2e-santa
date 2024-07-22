@@ -1,0 +1,81 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1721610698940' stop='1721611134576'>
+    <name>The user can create a box and run it</name>
+    <title>The user can create a box and run it</title>
+    <test-cases>
+        <test-case start='1721610698952' status='failed' stop='1721610780135'>
+            <name>The user logs in and creates a box</name>
+            <title>The user logs in and creates a box</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Timed out retrying after 60000ms: Expected to find element: `.layout-1__header-wrapper-fixed > .layout-1__header-secondary > .header-secondary > .header-secondary__left-item > .box-header-info > .box-header-info__wrapper > .txt-h3--max-1-lines`, but never found it.</message>
+                <stack-trace>AssertionError: Timed out retrying after 60000ms: Expected to find element: `.layout-1__header-wrapper-fixed > .layout-1__header-secondary > .header-secondary > .header-secondary__left-item > .box-header-info > .box-header-info__wrapper > .txt-h3--max-1-lines`, but never found it.
+                    at Context.eval (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:21282:46)
+                    at Registry.runStepDefininition (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:8502:48)
+                    at Object.fn (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:15701:43)
+                    at runStepWithLogGroup (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:15174:29)
+                    at Context.eval (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:15697:62)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1721610780406' status='failed' stop='1721610844318'>
+            <name>The author adds participants in the box manually</name>
+            <title>The author adds participants in the box manually</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Timed out retrying after 60000ms: Expected to find element: `.layout-1__header-wrapper-fixed .toggle-menu-item span`, but never found it.</message>
+                <stack-trace>AssertionError: Timed out retrying after 60000ms: Expected to find element: `.layout-1__header-wrapper-fixed .toggle-menu-item span`, but never found it.
+                    at Context.eval (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:21285:12)
+                    at Registry.runStepDefininition (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:8502:48)
+                    at Object.fn (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:15701:43)
+                    at runStepWithLogGroup (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:15174:29)
+                    at Context.eval (https://santa-secret.ru/__cypress/tests?p=cypress/e2e/tests/santa-box-create.feature:15697:62)</stack-trace>
+            </failure>
+        </test-case>
+        <test-case start='1721610844588' status='passed' stop='1721610907915'>
+            <name>Add participants by sending a link and approve invitations (example #1)</name>
+            <title>Add participants by sending a link and approve invitations (example #1)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1721610907980' status='passed' stop='1721610987726'>
+            <name>Add participants by sending a link and approve invitations (example #2)</name>
+            <title>Add participants by sending a link and approve invitations (example #2)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1721610987771' status='passed' stop='1721611047927'>
+            <name>Add participants by sending a link and approve invitations (example #3)</name>
+            <title>Add participants by sending a link and approve invitations (example #3)</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1721611047997' status='passed' stop='1721611103062'>
+            <name>The author starts a draw</name>
+            <title>The author starts a draw</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1721611103121' status='passed' stop='1721611134575'>
+            <name>The author deletes new box</name>
+            <title>The author deletes new box</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
