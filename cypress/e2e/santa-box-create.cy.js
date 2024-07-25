@@ -56,6 +56,8 @@ describe("user can create a box and run it", () => {
         expect(text).to.include("Участники");
         expect(text).to.include("Моя карточка");
         expect(text).to.include("Подопечный");
+        // Failing test
+        expect(2).to.eq(4);
       });
   });
 
@@ -83,6 +85,8 @@ describe("user can create a box and run it", () => {
     cy.contains(
       "Карточки участников успешно созданы и приглашения уже отправляются."
     ).should("exist");
+    // Failing test
+    expect(2).to.eq(4);
   });
 
   it("add participants by sending a link", () => {
@@ -121,6 +125,8 @@ describe("user can create a box and run it", () => {
       wishes
     );
     cy.clearCookies();
+    // Failing test
+    expect(2).to.eq(4);
   });
 
   it("draw for participiants", () => {

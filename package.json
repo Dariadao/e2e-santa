@@ -5,15 +5,19 @@
   "main": "cypress.config.js",
   "scripts": {
     "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run:result": "cypress run --reporter mocha-junit-reporter",
+    "jira:upload": "curl -H \"Content-Type: text/xml\" -X POST -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5hbnQiOiJjNzRjYTFhYi0yYWMyLTM2NDUtYjFjNC01YjU5ZDU4MTgxMzQiLCJhY2NvdW50SWQiOiI3MTIwMjA6NjA5MTQyMWYtYmE2OC00MjU0LTkxYTAtYzAyYjQ3ZmEzNWQ0IiwiaXNYZWEiOmZhbHNlLCJpYXQiOjE3MjE4NTg3NjYsImV4cCI6MTcyMTk0NTE2NiwiYXVkIjoiOTNBMDdENzM2QjIyNDJENUI1MDcxQjk2MkZENzRFMDQiLCJpc3MiOiJjb20ueHBhbmRpdC5wbHVnaW5zLnhyYXkiLCJzdWIiOiI5M0EwN0Q3MzZCMjI0MkQ1QjUwNzFCOTYyRkQ3NEUwNCJ9.gKdrDqs13hHsnB02N8BqlEPYmqvoOAQ52veI1lJUeqg\"  --data @\"/Users/daria/Documents/it-switcher-auto/E2E-Santa/e2e-santa/test-results.xml\" \"https://eu.xray.cloud.getxray.app/api/v1/import/execution/junit?projectKey=E2ESC\""
   },
   "author": "Daria Zakharova",
   "license": "ISC",
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
-    "cypress": "^12.17.4"
+    "cypress": "^13.13.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha-junit-reporter": "^2.2.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Dariadao/e2e-santa.git"

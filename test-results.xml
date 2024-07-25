@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="153.393" tests="7" failures="4">
+  <testsuite name="Root Suite" timestamp="2024-07-25T20:58:06" tests="0" file="cypress/e2e/santa-box-create.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="user can create a box and run it" timestamp="2024-07-25T20:58:06" tests="7" time="153.349" failures="4">
+    <testcase name="user can create a box and run it user logins and create a box" time="0.000" classname="user logins and create a box">
+      <failure message="expected 2 to equal 4" type="AssertionError"><![CDATA[AssertionError: expected 2 to equal 4
+    at Context.eval (webpack://e2e-santa/./cypress/e2e/santa-box-create.cy.js:59:21)
+
+      + expected - actual
+
+      -2
+      +4
+      ]]></failure>
+    </testcase>
+    <testcase name="user can create a box and run it add participants manually" time="0.000" classname="add participants manually">
+      <failure message="expected 2 to equal 4" type="AssertionError"><![CDATA[AssertionError: expected 2 to equal 4
+    at Context.eval (webpack://e2e-santa/./cypress/e2e/santa-box-create.cy.js:87:17)
+
+      + expected - actual
+
+      -2
+      +4
+      ]]></failure>
+    </testcase>
+    <testcase name="user can create a box and run it add participants by sending a link" time="4.473" classname="add participants by sending a link">
+    </testcase>
+    <testcase name="user can create a box and run it approve as user1" time="54.196" classname="approve as user1">
+    </testcase>
+    <testcase name="user can create a box and run it approve as user2" time="27.690" classname="approve as user2">
+    </testcase>
+    <testcase name="user can create a box and run it approve as user3" time="0.000" classname="approve as user3">
+      <failure message="expected 2 to equal 4" type="AssertionError"><![CDATA[AssertionError: expected 2 to equal 4
+    at Context.eval (webpack://e2e-santa/./cypress/e2e/santa-box-create.cy.js:126:17)
+
+      + expected - actual
+
+      -2
+      +4
+      ]]></failure>
+    </testcase>
+    <testcase name="user can create a box and run it draw for participiants" time="0.000" classname="draw for participiants">
+      <failure message="Cannot read properties of null (reading &apos;insertAdjacentElement&apos;)" type="TypeError"><![CDATA[TypeError: Cannot read properties of null (reading 'insertAdjacentElement')
+    at https://cdn.santa-secret.ru/bundle.263e3fa797d2e1b2f16f.min.js:2:1745783
+    at o (https://santa-secret.ru/box/owner663:1:495)
+    at https://santa-secret.ru/box/owner663:1:1266
+    at Array.forEach (<anonymous>)
+    at $Cypress.pause (https://santa-secret.ru/box/owner663:1:1182)]]></failure>
+    </testcase>
+  </testsuite>
+</testsuites>
